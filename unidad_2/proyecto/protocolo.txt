@@ -1,0 +1,15 @@
+propiedades del protocolo de comunicacion
+
+Primero la aplicacion de unity realizara las solicitudes al ESP32 
+tanto slicitas los datos de ambos sensores como enviar los datos para modificar 
+la hora y fecha del reloj.
+
+para modificar el reloj enviara primero el byte 0x03 y posterior mente enviara los 7 bytes con la informacion para
+escribir el reloj
+
+para solicitar los datos unity enviara el byte 0x04 y el ESP32 respondera con una trama de bytes que 
+inicia siempre con el byte 0x4A si la operacion es correcta y el resto de datoscorresponden al DS1307
+y tambien los del sensor BME280
+
+En cualquiera de las dos operaciones si esta no es exitosa y no se puede leer o escribir se enviara el byte 0x05
+y en caso de que sea exitosa se devuelve el byte 0x4A
