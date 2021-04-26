@@ -33,7 +33,7 @@ public class Protocol : AbstractSerialThread
             if (serialPort.BytesToRead >= 1)
             {
 
-                bufferUsed = serialPort.Read(buffer, 0, 24);
+                bufferUsed = serialPort.Read(buffer, 0, 25);
                 byte[] returnBuffer = new byte[bufferUsed];
                 System.Array.Copy(buffer, returnBuffer, bufferUsed);
 

@@ -38,7 +38,7 @@ void loop() {
         Serial.readBytes(info, 7);
                          //segundos,minutos,horas,dia de la semana,dia,mes,año
         if(DS1307.SetClock(info[0],info[1],info[2],info[3],info[4],info[5],info[6])){
-          Serial.write(0x4A);
+          //Serial.write(0x4A);
         }else{
           Serial.write(0x05);
         }
